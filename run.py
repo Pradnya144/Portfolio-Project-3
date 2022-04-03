@@ -9,9 +9,21 @@ class text_colours:
     MAGENTA = '\u001b[35m'
 
 
-print(text_colours.YELLOW + "Hello" + text_colours.MAGENTA + " World")
+def init_game():
+    """
+    Welcome user and provide options to play game, set difficulty or view the rules
+    """
+    print(text_colours.YELLOW + "Welcome to HANGMAN!!" + text_colours.WHITE)
+    print("Please press " + text_colours.MAGENTA + "1" + text_colours.WHITE + " to start the game")
+    print("Please press " + text_colours.MAGENTA + "2" + text_colours.WHITE + " to choose the difficulty")
+    print("Please press " + text_colours.MAGENTA + "3" + text_colours.WHITE + " to view game rules")
+
+    option = input("\n")
+
+        
 
 
+init_game()
 #f = open('words.json')
 #data = json.load(f)
 
