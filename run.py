@@ -33,12 +33,19 @@ def pick_randon_word():
     return random_word.upper()
 
 
+def begin_game(word, total_lives):
+    """
+    Game play
+    """
+    lives = total_lives
+    dashed_word = "_" * len(word)
+    #user_guesses = []
 
-pick_randon_word()
-#f = open('words.json')
-#data = json.load(f)
+    print("Let's Play! Try not to run out of lives!")
+    print("Lives: " + text_colours.BLUE + str(lives) + text_colours.WHITE)
+    print("\n")
+    print(f" Guess the word: " + " ".join(dashed_word) + "\n")
 
-#for i in data['data']:
-#    print(i)
 
-#f.close()
+word = pick_randon_word()
+begin_game(word, 7)
