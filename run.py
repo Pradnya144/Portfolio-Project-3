@@ -1,4 +1,5 @@
 import json
+import random
 
 class text_colours:
     GREEN = '\u001b[32;1m'
@@ -22,8 +23,18 @@ def init_game():
 
         
 
+def pick_randon_word():
+    """
+    Choose a random word from the words.json file which the player has to guess
+    """
+    file = open('words.json')
+    data = json.load(file)
+    random_word = random.choice(data['data'])
+    return random_word.upper()
 
-init_game()
+
+
+pick_randon_word()
 #f = open('words.json')
 #data = json.load(f)
 
