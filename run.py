@@ -72,15 +72,36 @@ def begin_game(word, total_lives):
 
                     user_guesses.append(player_guess)
                     lives -=1
+                    print(f"Lives: {lives} \n")
 
                 else:
                     print(f"{text_colours.RED}{(player_guess)}{text_colours.WHITE} is in the word. Good guess!")
 
                     user_guesses.append(player_guess)
+                    word_list = list(dashed_word)
+                    indices = [i for i, letter in enumerate(word)
+                               if letter == player_guess]
+                    for index in indices:
+                        word_list[index] = player_guess
+                        dashed_word = "".join(word_list)
+
+                    if "_" not in dashed_word:
+                        print("YOU WON")
+                        print(f"The word is {word}")
+                        break
+
+                    else:
+                        print(f"Guess the word: " + " ".join(dashed_word) + "\n")
+                        print("Letters guessed: " + ", ".join(sorted(user_guesses)) + "\n")
+
 
         except ValueError as e:
             print(f"{e} Please try again \n")
             continue
+
+    if lives == 0:
+        print(f"The word was {word}")
+        print("YOU LOST!")
 
 
 word = pick_randon_word()
