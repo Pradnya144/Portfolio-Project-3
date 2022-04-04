@@ -39,12 +39,46 @@ def begin_game(word, total_lives):
     """
     lives = total_lives
     dashed_word = "_" * len(word)
-    #user_guesses = []
+    user_guesses = []
 
     print("Let's Play! Try not to run out of lives!")
     print("Lives: " + text_colours.BLUE + str(lives) + text_colours.WHITE)
     print("\n")
-    print(f" Guess the word: " + " ".join(dashed_word) + "\n")
+    print(f"Guess the word: " + " ".join(dashed_word) + "\n")
+
+    try:
+        while lives > 0:
+            player_guess = input("Guess a letter: ").upper()
+            
+            if not player_guess.isalpha():
+                raise ValueError(
+                    text_colours.RED + "You can only guess alphabets, numbers and special characters are not valid guesses" + text_colours.WHITE
+                )
+            
+            elif len(player_guess) > 1:
+                raise ValueError(
+                    text_colours.RED + "You can only guess 1 alphabet at a time. This is not a valid guess" + text_colours.WHITE
+                )
+
+            elif player_guess.isalpha() and len(player_guess) == 1:
+                if player_guess in user_guesses:
+                    raise ValueError(
+                    f"You have already guessed the letter {(player_guess)}"
+                )
+
+                elif player_guess not in word:
+                    print(f"The letter {text_colours.RED}{(player_guess)}{text_colours.WHITE} is not in the word. You lost a life")
+
+                    user_guesses.append(player_guess)
+                    lives -=1
+
+                else:
+                    print(f"{text_colours.RED}{(player_guess)}{text_colours.WHITE} is in the word. Good guess!")
+
+                    user_guesses.append(player_guess)
+
+    except ValueError as e:
+        print("Please try again \n")
 
 
 word = pick_randon_word()
