@@ -46,28 +46,29 @@ def begin_game(word, total_lives):
     print("\n")
     print(f"Guess the word: " + " ".join(dashed_word) + "\n")
 
-    try:
-        while lives > 0:
-            player_guess = input("Guess a letter: ").upper()
-            
+    
+    while lives > 0:
+        player_guess = input("Guess a letter: ").upper()
+
+        try:
             if not player_guess.isalpha():
                 raise ValueError(
-                    text_colours.RED + "You can only guess alphabets, numbers and special characters are not valid guesses" + text_colours.WHITE
+                    text_colours.RED + "You can only guess alphabets, numbers and special characters are not valid guesses." + text_colours.WHITE
                 )
             
             elif len(player_guess) > 1:
                 raise ValueError(
-                    text_colours.RED + "You can only guess 1 alphabet at a time. This is not a valid guess" + text_colours.WHITE
+                    text_colours.RED + "You can only guess 1 alphabet at a time. This is not a valid guess." + text_colours.WHITE
                 )
 
             elif player_guess.isalpha() and len(player_guess) == 1:
                 if player_guess in user_guesses:
                     raise ValueError(
                     f"You have already guessed the letter {(player_guess)}"
-                )
+                    )
 
                 elif player_guess not in word:
-                    print(f"The letter {text_colours.RED}{(player_guess)}{text_colours.WHITE} is not in the word. You lost a life")
+                    print(f"The letter {text_colours.RED}{(player_guess)}{text_colours.WHITE} is not in the word. You lost a life.")
 
                     user_guesses.append(player_guess)
                     lives -=1
@@ -77,8 +78,9 @@ def begin_game(word, total_lives):
 
                     user_guesses.append(player_guess)
 
-    except ValueError as e:
-        print("Please try again \n")
+        except ValueError as e:
+            print(f"{e} Please try again \n")
+            continue
 
 
 word = pick_randon_word()
