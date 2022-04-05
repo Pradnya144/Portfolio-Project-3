@@ -29,7 +29,6 @@ def init_game():
 
         elif num == "2":
             option = True
-            select_difficulty()
 
         elif num == "3":
             option = True
@@ -104,7 +103,7 @@ def begin_game(word, total_lives):
                     if "_" not in dashed_word:
                         print("YOU WON")
                         print(f"The word is {word}")
-                        
+                        game_restart(total_lives)
 
                     else:
                         print(f"Guess the word: " + " ".join(dashed_word) + "\n")
@@ -200,8 +199,21 @@ def game_rules():
     )
 
     return_menu = input(text_colours.GREEN + "Press enter to return to the main menu \n" + text_colours.WHITE)
-    init_game()
+    main()
 
 
-word = pick_randon_word()
-init_game()
+def main():
+    """
+    Main function of the game
+    """
+    difficulty = init_game()
+    if difficulty == "medium":
+        total_lives = 7
+    else:
+        total_lives = select_difficulty()
+
+    word = pick_randon_word()
+    begin_game(word, total_lives)
+
+
+main()
