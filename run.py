@@ -157,13 +157,13 @@ def select_difficulty():
     """
     print("Select the level of difficulty \n")
     print(
-        " Press " + text_colours.MAGENTA + "E" + text_colors.WHITE + " for Easy"
+        " Press " + text_colours.MAGENTA + "E" + text_colours.WHITE + " for Easy"
         )
     print(
-        " Press " + text_colours.MAGENTA + "M" + text_colors.WHITE + " for Medium"
+        " Press " + text_colours.MAGENTA + "M" + text_colours.WHITE + " for Medium"
         )
     print(
-        " Press " + text_colours.MAGENTA + "H" + text_colors.WHITE + " for Hard"
+        " Press " + text_colours.MAGENTA + "H" + text_colours.WHITE + " for Hard"
         )
     difficulty = False
     while not difficulty:
@@ -181,9 +181,27 @@ def select_difficulty():
             total_lives = 5
             return total_lives
         else:
-            print(text_colors.RED + "\n Please select E, M or H to make your"
-                  " choice" + text_colors.WHITE)
+            print(text_colours.RED + "\n Please select E, M or H to make your"
+                  " choice" + text_colours.WHITE)
+
+
+def game_rules():
+    """
+    Brief explanation of how to play the game
+    """
+    print(
+        """
+        Input one letter at a time and 
+        try to guess the word. For every
+        wrong guess, you will lose a life.
+        When you are left with 0 lives, you
+        will be hanged and that's game over!! \n
+        """
+    )
+
+    return_menu = input(text_colours.GREEN + "Press enter to return to the main menu \n" + text_colours.WHITE)
+    init_game()
 
 
 word = pick_randon_word()
-begin_game(word, 7)
+init_game()
