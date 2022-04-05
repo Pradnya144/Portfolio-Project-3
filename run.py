@@ -111,7 +111,9 @@ def game_restart(total_lives):
     Player can choose whether to play the game again
     """
 
-    play_again = input("If you would like to play again, press Y. If you would like to choose difficulty again, press D. Press Q ro quit the game : \n").upper()
+    play_again = input("If you would like to play again, press Y. "
+                       "If you would like to choose difficulty again, press D. "
+                       "Press Q to quit the game : \n").upper()
 
     try:
         if play_again == "Y":
@@ -132,7 +134,40 @@ def game_restart(total_lives):
     except ValueError as e:
         print(f"{e}")
 
-        
+
+def select_difficulty():
+    """
+    Player can select the level of difficulty
+    """
+    print("Select the level of difficulty \n")
+    print(
+        " Press " + text_colours.MAGENTA + "E" + text_colors.WHITE + " for Easy"
+        )
+    print(
+        " Press " + text_colours.MAGENTA + "M" + text_colors.WHITE + " for Medium"
+        )
+    print(
+        " Press " + text_colours.MAGENTA + "H" + text_colors.WHITE + " for Hard"
+        )
+    difficulty = False
+    while not difficulty:
+        choice = input("\n ").upper()
+        if choice == "E":
+            difficulty = True
+            total_lives = 10
+            return num_lives
+        elif choice == "M":
+            difficulty = True
+            total_lives = 7
+            return num_lives
+        elif choice == "H":
+            difficulty = True
+            total_lives = 5
+            return total_lives
+        else:
+            print(text_colors.RED + "\n Please select E, M or H to make your"
+                  " choice" + text_colors.WHITE)
+
 
 word = pick_randon_word()
 begin_game(word, 7)
