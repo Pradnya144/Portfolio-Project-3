@@ -71,7 +71,7 @@ def begin_game(word, total_lives):
                     print(f"The letter {text_colours.RED}{(player_guess)}{text_colours.WHITE} is not in the word. You lost a life.")
 
                     user_guesses.append(player_guess)
-                    lives -=1
+                    lives -= 1
                     print(f"Lives: {lives} \n")
 
                 else:
@@ -88,7 +88,7 @@ def begin_game(word, total_lives):
                     if "_" not in dashed_word:
                         print("YOU WON")
                         print(f"The word is {word}")
-                        break
+                        
 
                     else:
                         print(f"Guess the word: " + " ".join(dashed_word) + "\n")
@@ -103,6 +103,36 @@ def begin_game(word, total_lives):
         print(f"The word was {word}")
         print("YOU LOST!")
 
+    game_restart(total_lives)
+
+
+def game_restart(total_lives):
+    """
+    Player can choose whether to play the game again
+    """
+
+    play_again = input("If you would like to play again, press Y. If you would like to choose difficulty again, press D. Press Q ro quit the game : \n").upper()
+
+    try:
+        if play_again == "Y":
+            word = pick_random_word()
+            begin_game(word, total_lives)
+
+        if play_again == "D":
+            select_difficulty()
+
+        elif play_again == "Q":
+            main()
+
+        else:
+            raise ValueError(
+                "Please press Y,D or Q"
+            )
+
+    except ValueError as e:
+        print(f"{e}")
+
+        
 
 word = pick_randon_word()
 begin_game(word, 7)
