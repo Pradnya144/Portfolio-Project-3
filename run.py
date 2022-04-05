@@ -19,10 +19,26 @@ def init_game():
     print("Please press " + text_colours.MAGENTA + "2" + text_colours.WHITE + " to choose the difficulty")
     print("Please press " + text_colours.MAGENTA + "3" + text_colours.WHITE + " to view game rules")
 
-    option = input("\n")
+    option = False
+    while not option:
+        num = input("\n")
+        if num == "1":
+            option = True
+            difficulty = "medium"
+            return difficulty
+
+        elif num == "2":
+            option = True
+            select_difficulty()
+
+        elif num == "3":
+            option = True
+            game_rules()
+
+        else:
+            print(text_colours.RED + "Please select 1,2 or 3 " + text_colours.WHITE)
 
         
-
 def pick_randon_word():
     """
     Choose a random word from the words.json file which the player has to guess
@@ -155,11 +171,11 @@ def select_difficulty():
         if choice == "E":
             difficulty = True
             total_lives = 10
-            return num_lives
+            return total_lives
         elif choice == "M":
             difficulty = True
             total_lives = 7
-            return num_lives
+            return total_lives
         elif choice == "H":
             difficulty = True
             total_lives = 5
