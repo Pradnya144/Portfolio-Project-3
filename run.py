@@ -240,12 +240,29 @@ def looser():
    """ + text_colours().WHITE
     )
 
-
+def game_logo():
+    """
+    Ascii graphics for Hangman logo
+    """
+    print( 
+        f"""
+        {text_colours().BLUE} 
+        :::    :::     :::     ::::    :::  ::::::::  ::::    ::::      :::     ::::    ::: 
+        :+:    :+:   :+: :+:   :+:+:   :+: :+:    :+: +:+:+: :+:+:+   :+: :+:   :+:+:   :+: 
+        +:+    +:+  +:+   +:+  :+:+:+  +:+ +:+        +:+ +:+:+ +:+  +:+   +:+  :+:+:+  +:+ 
+        +#++:++#++ +#++:++#++: +#+ +:+ +#+ :#:        +#+  +:+  +#+ +#++:++#++: +#+ +:+ +#+ 
+        +#+    +#+ +#+     +#+ +#+  +#+#+# +#+   +#+# +#+       +#+ +#+     +#+ +#+  +#+#+# {text_colours().YELLOW} 
+        #+#    #+# #+#     #+# #+#   #+#+# #+#    #+# #+#       #+# #+#     #+# #+#   #+#+# 
+        ###    ### ###     ### ###    ####  ########  ###       ### ###     ### ###    #### 
+        {text_colours().YELLOW} 
+        """
+    )
 
 def main():
     """
     Main function of the game
     """
+    game_logo()
     difficulty = init_game()
     if difficulty == "medium":
         total_lives = 7
