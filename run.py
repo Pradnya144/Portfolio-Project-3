@@ -117,7 +117,8 @@ def begin_game(word, total_lives):
 
     if lives == 0:
         print(f"The word was {word}")
-        print("YOU LOST!")
+        #print("YOU LOST!")
+        looser()
 
     game_restart(total_lives)
 
@@ -220,6 +221,25 @@ def winner():
         
        """ + text_colours().WHITE
     )
+
+def looser():
+    """
+    Ascii graphics for 'you lost'
+    """
+    print(
+        text_colours().RED + """
+        
+ ##    ##  #######  ##     ##   ##        #######   ######  ######## 
+  ##  ##  ##     ## ##     ##   ##       ##     ## ##    ##    ##    
+   ####   ##     ## ##     ##   ##       ##     ## ##          ##    
+    ##    ##     ## ##     ##   ##       ##     ##  ######     ##    
+    ##    ##     ## ##     ##   ##       ##     ##       ##    ##    
+    ##    ##     ## ##     ##   ##       ##     ## ##    ##    ##    
+    ##     #######   #######    ########  #######   ######     ##    
+   
+   """ + text_colours().WHITE
+    )
+
 
 
 def main():
