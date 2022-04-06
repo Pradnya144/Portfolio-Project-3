@@ -101,8 +101,9 @@ def begin_game(word, total_lives):
                         dashed_word = "".join(word_list)
 
                     if "_" not in dashed_word:
-                        print("YOU WON")
+                        #print("YOU WON")
                         print(f"The word is {word}")
+                        winner()
                         game_restart(total_lives)
 
                     else:
@@ -132,7 +133,7 @@ def game_restart(total_lives):
 
     try:
         if play_again == "Y":
-            word = pick_random_word()
+            word = pick_randon_word()
             begin_game(word, total_lives)
 
         if play_again == "D":
@@ -200,6 +201,25 @@ def game_rules():
 
     return_menu = input(text_colours.GREEN + "Press enter to return to the main menu \n" + text_colours.WHITE)
     main()
+
+
+def winner():
+    """
+    Ascii graphics for 'you won'
+    """
+    print(
+        text_colours().GREEN + """
+
+ ##    ##  #######  ##     ##   ##      ##  #######  ##    ## 
+  ##  ##  ##     ## ##     ##   ##  ##  ## ##     ## ###   ## 
+   ####   ##     ## ##     ##   ##  ##  ## ##     ## ####  ## 
+    ##    ##     ## ##     ##   ##  ##  ## ##     ## ## ## ## 
+    ##    ##     ## ##     ##   ##  ##  ## ##     ## ##  #### 
+    ##    ##     ## ##     ##   ##  ##  ## ##     ## ##   ### 
+    ##     #######   #######     ###  ###   #######  ##    ## 
+        
+       """ + text_colours().WHITE
+    )
 
 
 def main():
