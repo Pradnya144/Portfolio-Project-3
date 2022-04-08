@@ -115,6 +115,8 @@ def begin_game(word, total_lives):
             print(f"{e} Please try again \n")
             continue
 
+        print(hangman_graphics(lives))
+
     if lives == 0:
         print(f"The word was {word}")
         #print("YOU LOST!")
@@ -257,6 +259,122 @@ def game_logo():
         {text_colours().YELLOW} 
         """
     )
+
+def hangman_graphics(lives):
+    """
+    Display graphics based on number of lives a player has
+    """
+    hangman_lives = [
+        """
+        ___________
+        |/        |
+        |         O
+        |        /|\\
+        |         |
+        |        / \\
+        |\\
+        ========
+        """,
+        """
+        ___________
+        |/        |
+        |         O
+        |        /|\\
+        |         |
+        |        /
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |        /|\\
+        |         |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |        /|
+        |         |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |         |
+        |         |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |
+        |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/
+        |
+        |
+        |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/
+        |
+        |
+        |
+        |
+        |
+        ========
+        """,
+        """
+        |/
+        |
+        |
+        |
+        |
+        |
+        ========
+        """,
+
+        """
+        |
+        |
+        |
+        |
+        |
+        ========
+        """,
+        """
+
+
+
+
+
+
+        """
+    ]
+
+    return hangman_lives[lives]
+
 
 def main():
     """
