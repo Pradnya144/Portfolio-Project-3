@@ -31,6 +31,7 @@ def init_game():
         )
 
     option = False
+    # Run loop until user inputs option
     while not option:
         num = input("\n")
         if num == "1":
@@ -75,6 +76,7 @@ def begin_game(word, total_lives):
     print("\n")
     print(f"Guess the word: " + " ".join(dashed_word) + "\n")
 
+    # Run loop until user has lives and word is not guessed
     while lives > 0 and not game_over:
         player_guess = input("Guess a letter: ").upper()
 
@@ -152,6 +154,7 @@ def game_restart(total_lives):
     Player can choose whether to play the game again
     """
     valid_input = False
+    # Run loop until user chooses valid input
     while not valid_input:
 
         play_again = input("Press Y to play again "
@@ -201,6 +204,7 @@ def select_difficulty():
         text_colours.WHITE + " for Hard"
         )
     difficulty = False
+    # Run loop until difficulty is chosen
     while not difficulty:
         choice = input("\n ").upper()
         if choice == "E":
@@ -419,14 +423,19 @@ def main():
     """
     Main function of the game
     """
+    # Display logo
     game_logo()
+    # Capture difficulty
     difficulty = init_game()
+    # Decide number of lives basis difficulty
     if difficulty == "medium":
         total_lives = 7
     else:
         total_lives = select_difficulty()
 
+    # Capture computer selected random word
     word = pick_randon_word()
+    # Start game play
     begin_game(word, total_lives)
 
 
