@@ -131,29 +131,36 @@ def game_restart(total_lives):
     """
     Player can choose whether to play the game again
     """
-
-    play_again = input("If you would like to play again, press Y. "
+    valid_input = False
+    while not valid_input:
+        
+        play_again = input("If you would like to play again, press Y. "
                        "If you would like to choose difficulty again, press D. "
                        "Press Q to quit the game : \n").upper()
-
-    try:
-        if play_again == "Y":
-            word = pick_randon_word()
-            begin_game(word, total_lives)
-
-        if play_again == "D":
-            select_difficulty()
-
-        elif play_again == "Q":
-            main()
-
-        else:
-            raise ValueError(
-                "Please press Y,D or Q"
-            )
-
-    except ValueError as e:
-        print(f"{e}")
+                       
+        try:
+            if play_again == "Y":
+                valid_input = True
+                word = pick_randon_word()
+                begin_game(word, total_lives)
+                
+            if play_again == "D":
+                valid_input = True
+                total_lives = select_difficulty()
+                word = pick_randon_word()
+                begin_game(word, total_lives)
+                
+            elif play_again == "Q":
+                valid_input = True
+                main()
+                
+            else:
+                raise ValueError(
+                    "Please press Y,D or Q"
+                )
+                
+        except ValueError as e:
+            print(f"{e}")
 
 
 def select_difficulty():
