@@ -75,25 +75,28 @@ def begin_game(word, total_lives):
     print("\n")
     print(f"Guess the word: " + " ".join(dashed_word) + "\n")
 
-    
     while lives > 0 and not game_over:
         player_guess = input("Guess a letter: ").upper()
 
         try:
             if not player_guess.isalpha():
                 raise ValueError(
-                    text_colours.RED + "You can only guess alphabets, numbers and special characters are not valid guesses." + text_colours.WHITE
+                    text_colours.RED + "You can only guess alphabets,"
+                    " numbers and special characters are not valid guesses." +
+                    text_colours.WHITE
                 )
-            
+
             elif len(player_guess) > 1:
                 raise ValueError(
-                    text_colours.RED + "You can only guess 1 alphabet at a time. This is not a valid guess." + text_colours.WHITE
+                    text_colours.RED +
+                    "You can only guess 1 alphabet at a time."
+                    " This is not a valid guess." + text_colours.WHITE
                 )
 
             elif player_guess.isalpha() and len(player_guess) == 1:
                 if player_guess in user_guesses:
                     raise ValueError(
-                    f"You have already guessed the letter {(player_guess)}"
+                        f"You have already guessed the letter {player_guess}"
                     )
 
                 elif player_guess not in word:
