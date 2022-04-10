@@ -100,13 +100,17 @@ def begin_game(word, total_lives):
                     )
 
                 elif player_guess not in word:
-                    message = f"The letter {text_colours.RED}{(player_guess)}{text_colours.WHITE} is not in the word. You lost a life."
+                    message = f"The letter {text_colours.RED}{(player_guess)}"\
+                              f"{text_colours.WHITE} is not in the word."\
+                              " You lost a life."
 
                     user_guesses.append(player_guess)
                     lives -= 1
 
                 else:
-                    message = f"{text_colours.GREEN}{(player_guess)}{text_colours.WHITE} is in the word. Good guess!"
+                    message = f"{text_colours.GREEN}{(player_guess)}"\
+                              f"{text_colours.WHITE} is in the word."\
+                              " Good guess!"
 
                     user_guesses.append(player_guess)
                     word_list = list(dashed_word)
@@ -129,8 +133,7 @@ def begin_game(word, total_lives):
             print(message)
             print(f"Guess the word: " + " ".join(dashed_word) + "\n")
             print("Letters guessed: " + ", ".join(sorted(user_guesses)) + "\n")
-            print(f"Lives: {text_colours.BLUE} {lives} {text_colours.WHITE} \n")
-
+            print(f"Lives: {text_colours.BLUE}{lives}{text_colours.WHITE} \n")
 
     if lives == 0:
         print(f"The word was {word}")
@@ -138,7 +141,8 @@ def begin_game(word, total_lives):
 
     if game_over:
         winner()
-        print(f"{text_colours.GREEN} Congratulations! The word was {word} {text_colours.WHITE}")
+        print(f"{text_colours.GREEN} Congratulations!"
+              " The word was {word} {text_colours.WHITE}")
 
     game_restart(total_lives)
 
@@ -149,32 +153,32 @@ def game_restart(total_lives):
     """
     valid_input = False
     while not valid_input:
-        
-        play_again = input("If you would like to play again, press Y. "
-                       "If you would like to choose difficulty again, press D. "
-                       "Press Q to quit the game : \n").upper()
-                       
+
+        play_again = input("Press Y to play again "
+                           "Press D to choose difficulty "
+                           "Press Q to quit the game : \n").upper()
+
         try:
             if play_again == "Y":
                 valid_input = True
                 word = pick_randon_word()
                 begin_game(word, total_lives)
-                
+
             if play_again == "D":
                 valid_input = True
                 total_lives = select_difficulty()
                 word = pick_randon_word()
                 begin_game(word, total_lives)
-                
+
             elif play_again == "Q":
                 valid_input = True
                 main()
-                
+
             else:
                 raise ValueError(
                     "Please press Y,D or Q"
                 )
-                
+
         except ValueError as e:
             print(f"{e}")
 
@@ -185,13 +189,16 @@ def select_difficulty():
     """
     print("Select the level of difficulty \n")
     print(
-        " Press " + text_colours.MAGENTA + "E" + text_colours.WHITE + " for Easy"
+        " Press " + text_colours.MAGENTA + "E" +
+        text_colours.WHITE + " for Easy"
         )
     print(
-        " Press " + text_colours.MAGENTA + "M" + text_colours.WHITE + " for Medium"
+        " Press " + text_colours.MAGENTA + "M" +
+        text_colours.WHITE + " for Medium"
         )
     print(
-        " Press " + text_colours.MAGENTA + "H" + text_colours.WHITE + " for Hard"
+        " Press " + text_colours.MAGENTA + "H" +
+        text_colours.WHITE + " for Hard"
         )
     difficulty = False
     while not difficulty:
