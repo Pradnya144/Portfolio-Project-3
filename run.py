@@ -142,7 +142,7 @@ def begin_game(word, total_lives):
     if game_over:
         winner()
         print(f"{text_colours.GREEN} Congratulations!"
-              " The word was {word} {text_colours.WHITE}")
+              f" The word was {word} {text_colours.WHITE}")
 
     game_restart(total_lives)
 
