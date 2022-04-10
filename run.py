@@ -55,6 +55,7 @@ def begin_game(word, total_lives):
     lives = total_lives
     dashed_word = "_" * len(word)
     user_guesses = []
+    game_over = False
 
     print("Let's Play! Try not to run out of lives!")
     print("Lives: " + text_colours.BLUE + str(lives) + text_colours.WHITE)
@@ -62,7 +63,7 @@ def begin_game(word, total_lives):
     print(f"Guess the word: " + " ".join(dashed_word) + "\n")
 
     
-    while lives > 0:
+    while lives > 0 and not game_over:
         player_guess = input("Guess a letter: ").upper()
 
         try:
@@ -83,14 +84,13 @@ def begin_game(word, total_lives):
                     )
 
                 elif player_guess not in word:
-                    print(f"The letter {text_colours.RED}{(player_guess)}{text_colours.WHITE} is not in the word. You lost a life.")
+                    message = f"The letter {text_colours.RED}{(player_guess)}{text_colours.WHITE} is not in the word. You lost a life."
 
                     user_guesses.append(player_guess)
                     lives -= 1
-                    print(f"Lives: {lives} \n")
 
                 else:
-                    print(f"{text_colours.RED}{(player_guess)}{text_colours.WHITE} is in the word. Good guess!")
+                    message = f"{text_colours.GREEN}{(player_guess)}{text_colours.WHITE} is in the word. Good guess!"
 
                     user_guesses.append(player_guess)
                     word_list = list(dashed_word)
@@ -101,15 +101,7 @@ def begin_game(word, total_lives):
                         dashed_word = "".join(word_list)
 
                     if "_" not in dashed_word:
-                        #print("YOU WON")
-                        print(f"The word is {word}")
-                        winner()
-                        game_restart(total_lives)
-
-                    else:
-                        print(f"Guess the word: " + " ".join(dashed_word) + "\n")
-                        print("Letters guessed: " + ", ".join(sorted(user_guesses)) + "\n")
-
+                        game_over = True
 
         except ValueError as e:
             print(f"{e} Please try again \n")
@@ -117,10 +109,20 @@ def begin_game(word, total_lives):
 
         print(hangman_graphics(lives))
 
+        if lives > 0:
+            print(message)
+            print(f"Guess the word: " + " ".join(dashed_word) + "\n")
+            print("Letters guessed: " + ", ".join(sorted(user_guesses)) + "\n")
+            print(f"Lives: {text_colours.BLUE} {lives} {text_colours.WHITE} \n")
+
+
     if lives == 0:
         print(f"The word was {word}")
-        #print("YOU LOST!")
         looser()
+
+    if game_over:
+        winner()
+        print(f"{text_colours.GREEN} Congratulations! The word was {word} {text_colours.WHITE}")
 
     game_restart(total_lives)
 
