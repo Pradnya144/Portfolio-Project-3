@@ -1,6 +1,7 @@
 import json
 import random
 
+
 class text_colours:
     GREEN = '\u001b[32;1m'
     WHITE = '\033[0m'
@@ -12,12 +13,22 @@ class text_colours:
 
 def init_game():
     """
-    Welcome user and provide options to play game, set difficulty or view the rules
+    Welcome user and provide options to play game,
+    set difficulty or view the rules
     """
     print(text_colours.YELLOW + "Welcome to HANGMAN!!" + text_colours.WHITE)
-    print("Please press " + text_colours.MAGENTA + "1" + text_colours.WHITE + " to start the game")
-    print("Please press " + text_colours.MAGENTA + "2" + text_colours.WHITE + " to choose the difficulty")
-    print("Please press " + text_colours.MAGENTA + "3" + text_colours.WHITE + " to view game rules")
+    print(
+        "Please press " + text_colours.MAGENTA + "1" +
+        text_colours.WHITE + " to start the game"
+        )
+    print(
+        "Please press " + text_colours.MAGENTA + "2" +
+        text_colours.WHITE + " to choose the difficulty"
+        )
+    print(
+        "Please press " + text_colours.MAGENTA + "3" +
+        text_colours.WHITE + " to view game rules"
+        )
 
     option = False
     while not option:
@@ -35,9 +46,11 @@ def init_game():
             game_rules()
 
         else:
-            print(text_colours.RED + "Please select 1,2 or 3 " + text_colours.WHITE)
+            print(
+                text_colours.RED +
+                "Please select 1,2 or 3 " + text_colours.WHITE)
 
-        
+
 def pick_randon_word():
     """
     Choose a random word from the words.json file which the player has to guess
