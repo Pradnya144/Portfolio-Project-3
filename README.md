@@ -39,12 +39,19 @@ User stories were created to help guide the implementation phases of the project
 
 I have used the default background of the terminal which is black. To highlight certain text on the command line I have changed the text colour for easier readibility.  
  
-  
-![color palette](README-docs/color-palette.jpg)  
 
 ### Font  
 
 I have used the default font here. I have used ascii art to display the game logo and winner and looser graphics.  
+
+
+## Features  
+
+1. A player has multiple options to choose from.  
+2. Immadiate game start, in the default mode which is level medium.  
+3. 3 levels of difficulty to choose from.  
+4. Simple explanation on the game in the rules section.  
+5. Attractive graphics using ascii art.  
 
 
 
