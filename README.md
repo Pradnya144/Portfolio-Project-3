@@ -5,6 +5,10 @@ Each time the player guesses a wrong letter, the hangman display grows. Eventual
 
 [Click here to play the game](https://hangman144.herokuapp.com/)  
 
+![mockup](assets/images/mockup.jpg)  
+
+
+
 ## Table of Contents  
 
 * [User Experience (UX)](#User-Experience-(UX))  
