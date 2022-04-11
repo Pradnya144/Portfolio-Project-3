@@ -78,7 +78,22 @@ I have tested the code and the game logic by
 * Tested the game in gitpod terminal as well as heroku terminal.  
 
 
+## Deployment  
 
+This game is deployed using Heroku app  
 
+* One will need to create an account on [Heroku](https://www.heroku.com/)  
+* Once signed in click on the "Create New App".  
+* Enter a name for you app and select the appropriate region.  
+* Click on create app.  
+* Go to the "Settings" tab.
+* Click "Add Buildpack".
+* Add "nodejs" and then "python", the order is important here. Save  
+* Go to the "Deploy" tab.
+* Select the Github option and connect to github.  
+* Search for the name of the github repository you want to connect to.  
+* Click on Enable Automatic Deploy for automatic deploys or Deploy Branch to manually deploy.  
+* Click "View" to view the deployed site.  
+* The deployed site can also be accessed from the Environment section in the github repository.  
 
 
