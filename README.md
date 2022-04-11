@@ -63,5 +63,14 @@ I have used the default font here. I have used ascii art to display the game log
 
 ![flow chart](/assets/images/Program_flow_chart.png)  
 
+### Packages  
+
+1. json - Used this package to read the data from json file where words are stored.  
+2. random - Used this package to pick a random word from the dictionary of words.  
+
+
+ 
+
+
 
 
