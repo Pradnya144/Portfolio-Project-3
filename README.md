@@ -53,6 +53,15 @@ I have used the default font here. I have used ascii art to display the game log
 4. Simple explanation on the game in the rules section.  
 5. Attractive graphics using ascii art.  
 
+## Technologies  
+
+### Languages used  
+
+* Python
+
+### Algorithm  
+
+![flow chart](/assets/images/Program_flow_chart.png)  
 
 
 
