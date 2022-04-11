@@ -69,7 +69,15 @@ I have used the default font here. I have used ascii art to display the game log
 2. random - Used this package to pick a random word from the dictionary of words.  
 
 
- 
+## Testing  
+
+I have tested the code and the game logic by  
+
+* Passing the python code through the PEP8 validator (http://pep8online.com/) and solving any errors and warnings.  
+* Passing invalid and valid values while playing the game to check if the program responds as expected.  
+* Tested the game in gitpod terminal as well as heroku terminal.  
+
+
 
 
 
