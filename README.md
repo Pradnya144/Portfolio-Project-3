@@ -97,3 +97,10 @@ This game is deployed using Heroku app
 * The deployed site can also be accessed from the Environment section in the github repository.  
 
 
+## Acknowledgements & Credit  
+
+I have created the Ascii art using the website https://onlineasciitools.com/convert-text-to-ascii-art  
+The words.json file is taken from https://stackoverflow.com/questions/594273/how-to-pick-a-random-english-word-from-a-list  
+I have taken references and inspiration from a lot of tutorials and code available online https://www.codegrepper.com/code-examples/python/python+hangman ,  
+https://morioh.com/p/6fc9584bb7d0 , https://itsourcecode.com/free-projects/python-projects/hangman-game-in-python-with-source-code/ ,  
+
